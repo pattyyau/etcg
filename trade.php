@@ -157,12 +157,11 @@ $youremail = $youremail['value'];
 ?> 
 
 <h1>Trade Me</h1>
-<div align="center"><ul>
+
+<ul>
 	<li>Please allow at least <em>7 days</em> for a response to your trade request.</li>
 	<li>If the form doesn't work, feel free to email me: <strong><?php echo str_replace('@','[at]',$youremail); ?></strong></li>
 	<li><strong>Please spell out card names COMPLETELY.</strong> (ie. do NOT type cardname01/02; DO type cardname01, cardname02)</li>
-</ul></div>
-   
-<br />
+</ul>
 
 <?php include 'tradeform.php'; } ?>

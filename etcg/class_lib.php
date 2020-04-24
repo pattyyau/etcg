@@ -34,7 +34,7 @@ class Database {
 	function connect () {
 	
 		$link = @mysqli_connect( Config::DB_SERVER , Config::DB_USER , Config::DB_PASSWORD, Config::DB_DATABASE )
-		or die( "Couldn't connect to MYSQL: ".mysqli_error($link) );
+		or die( "Couldn't connect to MYSQL: ".mysqli_connect_error($link) );
 		
 		return $link;
 		
