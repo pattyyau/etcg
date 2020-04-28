@@ -148,7 +148,7 @@ function show_cards( $tcg, $category, $unique = 0 ) {
 	else {
 		
 		$cards = explode(',',$cards['cards']);
-		$cards = array_map(trim, $cards);
+		$cards = array_map('trim', $cards);
 		if ( $unique == 1 ) { $cards = array_unique($cards); }
 	
 		foreach ( $cards as $card ) {
@@ -182,7 +182,7 @@ function show_doubles( $tcg, $category ) {
 	else {
 		
 		$cards = explode(',',$cards['cards']);
-		$cards = array_map(trim, $cards);
+		$cards = array_map('trim', $cards);
 		$doubles = array_diff_assoc($cards, array_unique($cards));
 
 		if ( !empty($doubles) ) {
@@ -232,8 +232,8 @@ function show_collecting($tcg, $worth = '', $deckname = '') {
 		?>
 
 		<h2><?php echo $row['deck']; ?> (<?php echo $count; ?>/<?php echo $row['count']; ?>)</h2>
-        <p align="center">
-        	<?php
+    <div style="display:inline-grid;grid-template-columns:repeat(<?php echo $row['break']; ?>, 1fr);">
+    	<?php
 				for ( $i = 1; $i <= $row['count']; $i++ ) {
 					
 					$number = $i;
@@ -247,13 +247,12 @@ function show_collecting($tcg, $worth = '', $deckname = '') {
 					else { echo '<img src="'.$tcginfo['cardsurl'].''.$row['filler'].'.'.$format.'" alt="" />'; }
 					
 					if ( $row['puzzle'] == 0 ) { echo ' '; }
-					if ( $row['break'] !== '0' && $i % $row['break'] == 0 ) { echo '<br />'; }
 					
 				}
 			?>
-        </p>
-        
-        <?php 
+    </div>
+    
+   <?php 
 	}
 	
 }
